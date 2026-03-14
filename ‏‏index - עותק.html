@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>לוח פירגונים</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+overflow:hidden;
+background:linear-gradient(135deg,#0a2a66,#1f5fd6,#0b3b91);
+color:white;
+text-align:center;
+}
+
+/* כותרת */
+
+h1{
+font-size:55px;
+margin-top:20px;
+}
+
+/* ברכות */
+
+.message{
+position:absolute;
+background:white;
+color:#0a2a66;
+padding:20px;
+border-radius:12px;
+font-size:24px;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+animation:moveMsg 25s linear infinite;
+}
+
+/* תנועת ברכות */
+
+@keyframes moveMsg{
+
+0%{
+transform:translateY(100vh);
+}
+
+100%{
+transform:translateY(-200px);
+}
+
+}
+
+/* לב */
+
+.heart{
+
+position:absolute;
+width:20px;
+height:20px;
+
+background:#ff4d6d;
+
+transform:rotate(-45deg);
+
+animation:float 20s linear infinite;
+
+}
+
+.heart:before,
+.heart:after{
+
+content:"";
+
+position:absolute;
+
+width:20px;
+height:20px;
+
+background:#ff4d6d;
+
+border-radius:50%;
+
+}
+
+.heart:before{
+top:-10px;
+left:0;
+}
+
+.heart:after{
+left:10px;
+top:0;
+}
+
+/* תנועת לבבות */
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh) rotate(-45deg);
+}
+
+100%{
+transform:translateY(-100px) rotate(-45deg);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>לוח פירגונים</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+overflow:hidden;
+background:linear-gradient(135deg,#0a2a66,#1f5fd6,#0b3b91);
+color:white;
+text-align:center;
+}
+
+/* כותרת */
+
+h1{
+font-size:60px;
+margin-top:25px;
+text-shadow:0 0 20px rgba(255,255,255,0.6);
+}
+
+/* פתק ברכה */
+
+.note{
+
+position:absolute;
+
+padding:20px;
+
+width:240px;
+
+border-radius:10px;
+
+font-size:22px;
+
+color:#0a2a66;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+
+animation:floatNote 35s linear infinite;
+
+}
+
+/* צבעים לפתקים */
+
+.yellow{background:#fff3a0}
+.pink{background:#ffd6e7}
+.blue{background:#d6f0ff}
+.green{background:#d9ffd6}
+
+/* תנועת פתק */
+
+@keyframes floatNote{
+
+0%{transform:translateY(100vh) rotate(-5deg)}
+
+100%{transform:translateY(-200px) rotate(5deg)}
+
+}
+
+/* לב */
+
+.heart{
+
+position:absolute;
+
+width:18px;
+height:18px;
+
+background:#ff4d6d;
+
+transform:rotate(-45deg);
+
+animation:floatHeart 22s linear infinite;
+
+opacity:0.8;
+
+}
+
+.heart:before,
+.heart:after{
+
+content:"";
+
+position:absolute;
+
+width:18px;
+height:18px;
+
+background:#ff4d6d;
+
+border-radius:50%;
+
+}
+
+.heart:before{top:-9px}
+.heart:after{left:9px}
+
+/* תנועת לבבות */
+
+@keyframes floatHeart{
+
+0%{transform:translateY(100vh) rotate(-45deg)}
+
+100%{transform:translateY(-120px) rotate(-45deg)}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>💙 לוח הפירגונים 💙</h1>
+
+<script>
+
+/* ברכות */
+
+let messages=[
+
+"תודה לצוות הלילה 🙌",
+
+"רועי אתה אלוף 🏆",
+
+"תודה לאבי על העזרה 👏",
+
+"הצוות שלנו מדהים 💙",
+
+"כל הכבוד על העבודה הקשה 🔥",
+
+"תודה על האווירה הטובה 😃"
+
+]
+
+const colors=["yellow","pink","blue","green"]
+
+messages.forEach(text=>{
+
+const div=document.createElement("div")
+
+div.className="note "+colors[Math.floor(Math.random()*colors.length)]
+
+div.innerText=text
+
+div.style.left=Math.random()*80+"vw"
+
+div.style.animationDuration=(30+Math.random()*20)+"s"
+
+document.body.appendChild(div)
+
+})
+
+/* לבבות */
+
+function createHeart(){
+
+const heart=document.createElement("div")
+
+heart.className="heart"
+
+heart.style.left=Math.random()*100+"vw"
+
+heart.style.animationDuration=(20+Math.random()*10)+"s"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),25000)
+
+}
+
+setInterval(createHeart,1000)
+
+</script>
+
+</body>
+</html>

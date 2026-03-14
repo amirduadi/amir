@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>לוח פירגונים</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+overflow:hidden;
+background:linear-gradient(135deg,#0a2a66,#1f5fd6,#0b3b91);
+color:white;
+text-align:center;
+}
+
+/* כותרת */
+
+h1{
+font-size:55px;
+margin-top:20px;
+}
+
+/* ברכות */
+
+.message{
+position:absolute;
+background:white;
+color:#0a2a66;
+padding:20px;
+border-radius:12px;
+font-size:24px;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+animation:moveMsg 25s linear infinite;
+}
+
+/* תנועת ברכות */
+
+@keyframes moveMsg{
+
+0%{
+transform:translateY(100vh);
+}
+
+100%{
+transform:translateY(-200px);
+}
+
+}
+
+/* לב */
+
+.heart{
+
+position:absolute;
+width:20px;
+height:20px;
+
+background:#ff4d6d;
+
+transform:rotate(-45deg);
+
+animation:float 20s linear infinite;
+
+}
+
+.heart:before,
+.heart:after{
+
+content:"";
+
+position:absolute;
+
+width:20px;
+height:20px;
+
+background:#ff4d6d;
+
+border-radius:50%;
+
+}
+
+.heart:before{
+top:-10px;
+left:0;
+}
+
+.heart:after{
+left:10px;
+top:0;
+}
+
+/* תנועת לבבות */
+
+@keyframes float{
+
+0%{
+transform:translateY(100vh) rotate(-45deg);
+}
+
+100%{
+transform:translateY(-100px) rotate(-45deg);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>💙 לוח פירגונים וברכות 💙</h1>
+
+<script>
+
+/* ברכות */
+
+let messages=[
+"תודה לצוות המדהים 🙌",
+"רועי אתה אלוף 🏆",
+"תודה על העזרה היום 👏",
+"הצוות שלנו הכי טוב 💙",
+"כל הכבוד על העבודה הקשה 🔥"
+]
+
+messages.forEach(text=>{
+
+const div=document.createElement("div")
+
+div.className="message"
+
+div.innerText=text
+
+div.style.left=Math.random()*80+"vw"
+
+div.style.animationDuration=(20+Math.random()*20)+"s"
+
+document.body.appendChild(div)
+
+})
+
+/* לבבות */
+
+function createHeart(){
+
+const heart=document.createElement("div")
+
+heart.className="heart"
+
+heart.style.left=Math.random()*100+"vw"
+
+heart.style.animationDuration=(15+Math.random()*10)+"s"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),25000)
+
+}
+
+setInterval(createHeart,800)
+
+</script>
+
+</body>
+</html>
